@@ -7,5 +7,5 @@
     <input id="chat-input" type="text"></input>
   </div>
 <% else %>
-  <p>Use the "Log in" link above to login. Chat is only enabled for logged in users. Thank you!</p>
+  <p>You need to <%= link "Log in", to: session_path(@conn, :new) %> to use ChatApp. Chat is only enabled for logged in users. Thank you!</p>
 <% end %>
