@@ -16,6 +16,8 @@ defmodule PhoenixChat.Router do
   scope "/", PhoenixChat do
     pipe_through :browser # Use the default browser stack
 
+    resources "/users", UserController
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
     get "/", PageController, :index
   end
 

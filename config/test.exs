@@ -14,3 +14,5 @@ config :phoenix_chat, PhoenixChat.Repo,
   adapter: Sqlite.Ecto,
   database: "db/phoenix_chat_test.sqlite",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :comeonin, bcrypt_log_rounds: 4
