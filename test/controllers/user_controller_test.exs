@@ -2,7 +2,8 @@ defmodule PhoenixChat.UserControllerTest do
   use PhoenixChat.ConnCase
 
   alias PhoenixChat.User
-  @valid_attrs %{email: "some content", password_digest: "some content", username: "some content"}
+  @valid_create_attrs %{email: "email@example.com", password: "testing", password_confirmation: "testing", username: "testuser"}
+  @valid_attrs %{email: "email@example.com", username: "testuser"}
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do
@@ -16,7 +17,7 @@ defmodule PhoenixChat.UserControllerTest do
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
-    conn = post conn, user_path(conn, :create), user: @valid_attrs
+    conn = post conn, user_path(conn, :create), user: @valid_create_attrs
     assert redirected_to(conn) == user_path(conn, :index)
     assert Repo.get_by(User, @valid_attrs)
   end
@@ -46,7 +47,7 @@ defmodule PhoenixChat.UserControllerTest do
 
   test "updates chosen resource and redirects when data is valid", %{conn: conn} do
     user = Repo.insert! %User{}
-    conn = put conn, user_path(conn, :update, user), user: @valid_attrs
+    conn = put conn, user_path(conn, :update, user), user: @valid_create_attrs
     assert redirected_to(conn) == user_path(conn, :show, user)
     assert Repo.get_by(User, @valid_attrs)
   end
