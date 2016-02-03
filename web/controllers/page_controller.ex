@@ -3,7 +3,7 @@ defmodule PhoenixChat.PageController do
 
   def index(conn, _params) do
     user = current_user(conn)
-    render conn, "index.html", test: user
+    render(conn, "index.html", user: user)
   end
 
   defp current_user(conn) do

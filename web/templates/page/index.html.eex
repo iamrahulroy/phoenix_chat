@@ -1,8 +1,11 @@
 <h2>Welcome to ChatApp</h2>
 
-<div class="well">
-  <div id="messages"></div>
-  <input id="username" type="text" value="<%= @test.username %>" readonly></input>
-  <input id="chat-input" type="text"></input>
-</div>
-
+<%= if @user do %>
+  <div class="well">
+    <div id="messages"></div>
+    <input id="username" type="text" value="<%= @user.username %>" readonly></input>
+    <input id="chat-input" type="text"></input>
+  </div>
+<% else %>
+  <p>Use the "Log in" link above to login. Chat is only enabled for logged in users. Thank you!</p>
+<% end %>
